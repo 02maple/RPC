@@ -1,0 +1,21 @@
+
+<!--<configuration>-->
+<!--<root level="error">-->
+<!--    <appender-ref ref="CONSOLE" />-->
+<!--</root>-->
+<!--</configuration>-->
+
+<configuration>
+<!--<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">-->
+<!--    &lt;!&ndash; 设置输出格式等配置 &ndash;&gt;-->
+<!--</appender>-->
+
+<root level="WARN"> <!-- 设置根级别为 ERROR -->
+
+</root>
+<!--    <contextListener class="ch.qos.logback.core.status.NopStatusListener" />-->
+
+<!-- 关闭所有其他包和类的日志记录 -->
+<!--<logger name="org.maple" level="OFF" />-->
+
+</configuration>
