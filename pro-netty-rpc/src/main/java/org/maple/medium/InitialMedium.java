@@ -1,11 +1,9 @@
 package org.maple.medium;
 
 import org.maple.annotation.Remote;
-import org.maple.annotation.RemoteInvoke;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
 
 import java.lang.reflect.Method;
 import java.util.Map;
@@ -31,16 +29,24 @@ public class InitialMedium implements BeanPostProcessor {
             for(Method m:methods){
                 //作为key传入
                 //类包名加上方法名，全路径
-                String beanMethodKey=bean.getClass().getInterfaces()[0].getName()+"."+m.getName();
-//                String beanMethodKey=bean.getClass().getSuperclass().getName()+"."+m.getName();
-                Map<String, BeanMethod> beanMethodMap = Medium.beanMethodMap;
+//                String beanMethodKey=bean.getClass().getInterfaces()[0].getName()+"."+m.getName();
+                String beanMethodKey=bean.getClass().getName()+"."+m.getName();
+                //修改 2023年8月24日15点56分
+//                String beanMethodKey=bean.getClass(). getSuperclass() .getName()+"."+m.getName();
+
+                Map<String, BeanMethod> beanMethodMap = Media.beanMethodMap;
 
                 BeanMethod beanMethod = new BeanMethod();
                 beanMethod.setBean(bean);
                 beanMethod.setM(m);
 
                 beanMethodMap.put(beanMethodKey,beanMethod);
+//                System.out.println(beanMethodMap.get("org.maple.users.remote.UserRemoteImpl.saveUsers"));
             }
+
+//            System.out.println(Media.beanMethodMap.get("org.maple.users.remote.UserRemoteImpl.saveUsers"));
+//            System.out.println(Media.beanMethodMap.get("org.maple.users.remote.UserRemoteImpl.saveUser"));
+//            System.out.println(Media.beanMethodMap.hashCode());
         }
         return bean;
     }

@@ -14,6 +14,7 @@ public class ZookeeperFactory {
 //        client = CuratorFrameworkFactory.newClient("localhost:2181", retryPolicy);
 //        client.start();
 //        return client;
+
         if(client == null){
             RetryPolicy retryPolicy = new ExponentialBackoffRetry(1000, 3);//重试机制
             client = CuratorFrameworkFactory.newClient("localhost:2181", retryPolicy);

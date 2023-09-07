@@ -67,7 +67,6 @@ public class TCPClient {
                 String[] str = sp.split("#");
                 ChannelManager.realPath.add(str[0]+"#"+str[1]);
                 ChannelFuture future = TCPClient.bootstrap.connect(str[0], Integer.parseInt(str[1]));
-
                 ChannelManager.add(future);
             }
 //            if(realPath.size()>0){
@@ -112,7 +111,7 @@ public class TCPClient {
 
 
     public static Response send(ClientRequest request){
-        future = ChannelManager.get(ChannelManager.position);
+//        future = ChannelManager.get(ChannelManager.position);
         future.channel().writeAndFlush(JSONObject.toJSONString(request)+"\r\n");
         DefaultFuture df = new DefaultFuture(request);
         return df.get(df.getTimeout());

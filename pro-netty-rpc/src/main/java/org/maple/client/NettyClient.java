@@ -37,8 +37,6 @@ public class NettyClient {
                             pipeline.addLast(new StringDecoder());
                             pipeline.addLast(new SimpleClientHandler());
                             pipeline.addLast(new StringEncoder());
-//                            pipeline.addLast(new SimpleClientHandler());
-
                         }
                     });
             ChannelFuture channelFuture = bootstrap.connect("localhost", 8180).sync();

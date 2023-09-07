@@ -5,7 +5,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import org.maple.util.Response;
 import org.maple.util.ServerRequest;
-import org.maple.medium.Medium;
+import org.maple.medium.Media;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -18,7 +18,7 @@ public class ServerHandler extends ChannelInboundHandlerAdapter {
         ServerRequest serverRequest = JSONObject.parseObject(msg.toString(), ServerRequest.class);
         //交给中介处理
         //创建中介单例对象
-        Medium medium = Medium.newInstance();
+        Media medium = Media.newInstance();
         Response response = medium.process(serverRequest);
         /*
         *   此处的setId是问题所在，当客户端等待服务器返回的response的时候，会await，需要服务器的handler

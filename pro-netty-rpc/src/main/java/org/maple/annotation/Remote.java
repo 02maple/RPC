@@ -14,6 +14,5 @@ import org.springframework.stereotype.Component;
 @Documented
 @Component
 public @interface Remote {
-
     String value() default "";
 }

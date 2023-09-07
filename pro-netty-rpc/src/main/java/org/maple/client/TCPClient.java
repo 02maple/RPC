@@ -24,7 +24,8 @@ public class TCPClient {
         NioEventLoopGroup group = new NioEventLoopGroup();
         try {
             Bootstrap bootstrap = new Bootstrap();
-        bootstrap.group(group)
+
+            bootstrap.group(group)
                 .channel(NioSocketChannel.class)
                 .option(ChannelOption.SO_KEEPALIVE,true)
                 .handler(new ChannelInitializer<SocketChannel>() {
@@ -35,10 +36,8 @@ public class TCPClient {
 
                         pipeline.addLast(new DelimiterBasedFrameDecoder(Integer.MAX_VALUE, Delimiters.lineDelimiter()[0]));
                         pipeline.addLast(new StringDecoder());
-//                        pipeline.addLast(new StringEncoder());
                         pipeline.addLast(new SimpleClientHandler());
                         pipeline.addLast(new StringEncoder());
-
                     }
                 });
 
@@ -79,6 +78,5 @@ public class TCPClient {
         return df.get();
     }
     public static void main(String[] args) {
-
     }
 }

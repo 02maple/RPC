@@ -8,18 +8,18 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Medium {
+public class Media {
     public static Map<String,BeanMethod> beanMethodMap;
     static {
         beanMethodMap = new HashMap<String, BeanMethod>();
     }
 
-    private static Medium m = null;
-    private Medium(){
+    private static Media m = null;
+    private Media(){
     }
-    public static Medium newInstance(){
+    public static Media newInstance(){
         if(m==null){
-            m = new Medium();
+            m = new Media();
         }
         return m;
     }

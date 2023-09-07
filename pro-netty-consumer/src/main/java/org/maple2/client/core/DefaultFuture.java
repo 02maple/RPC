@@ -16,12 +16,11 @@ public class DefaultFuture {
             = new ConcurrentHashMap<>();
     private Response response;
 
-    public Response getResponse()    {
+    public Response getResponse(){
         return response;
     }
     private long timeout = 2*60*1000;
     private final long starttime = System.currentTimeMillis();
-
     public long getTimeout() {
         return timeout;
     }
